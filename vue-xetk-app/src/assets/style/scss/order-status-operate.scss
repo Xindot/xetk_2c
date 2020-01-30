@@ -1,0 +1,31 @@
+.order-status-operate {
+  margin: 10px 0;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 14px;
+  color: #333333;
+
+  p {
+    span {
+      display: inline-block;
+      font-size: 14px;
+      height: 24px;
+      line-height: 24px;
+      padding: 0 15px;
+      box-sizing: border-box;
+      border-radius: 50px;
+      color: #acacac;
+      border: solid 1px #acacac;
+
+      +span {
+        margin-left: 15px;
+      }
+
+      &.red {
+        color: #ee3a36;
+        border: solid 1px #ee3a36;
+      }
+    }
+  }
+}

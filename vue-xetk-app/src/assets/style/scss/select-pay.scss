@@ -1,0 +1,40 @@
+.select-pay {
+  @import "@style/scss/mint-ui/popup.scss";
+
+  .pay-list {
+    background-color: #ffffff;
+    padding: 10px 0;
+    text-align: left;
+
+    >p {
+      font-size: 16px;
+      color: $default-color;
+      font-weight: bold;
+      padding: 20px;
+      padding-top: 0;
+    }
+
+    >div {
+      display: inline-block;
+      text-align: center;
+
+      &.payApiStatus-1 {
+        opacity: 0.5;
+      }
+
+      .p-1 {
+        font-size: 0;
+
+        img {
+          height: $list-one-height;
+        }
+      }
+
+      .p-2 {
+        font-size: $default-font-size;
+        color: $default-color;
+        padding: 10px 0;
+      }
+    }
+  }
+}

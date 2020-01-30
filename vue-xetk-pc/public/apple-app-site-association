@@ -1,0 +1,14 @@
+
+{
+    "applinks":{
+        "apps":[
+
+        ],
+        "details":[
+            {
+                "paths":["*"],
+                "appID":"8G54MB6ADQ.cn.com.CarAfterService"
+            }
+        ]
+    }
+}

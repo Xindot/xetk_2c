@@ -1,0 +1,14 @@
+{
+  "code": 0,
+  "data": {
+    "oilAppMode": false,
+    "oilWebIndex": "https://h5.gushitech.com/oilWeb/#/index",
+    "newPerson": "http://h5.gushitech.com/oilWeb/#/hd/168",
+    "safepage": "https://h5.gushitech.com/oilWeb/#/index/security",
+    "hotactivity": "http://h5.gushitech.com/oilWeb/#/hd/168",
+    "faq": "http://h5.gushitech.com/oilWeb/#/me/faq",
+    "userAgreement": "https://h5.gushitech.com/oilWeb/#/me/login/agreement",
+    "carviolation": "https://h5.gushitech.com/oilWeb/#/me/car/list",
+    "about": "https://h5.gushitech.com/oilWeb/#/me/about"
+  }
+}
