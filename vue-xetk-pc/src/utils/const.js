@@ -38,6 +38,13 @@ const dateForamtKeys = [
   'projectEndTime',
 ]
 
+const questionTypes = ['单选题', '多选题', '填空题', '简答题']
+
+let selectOptions = []
+for (var i = 0; i < 6; i++) {
+  selectOptions.push(String.fromCharCode(i + 65));
+}
+
 export {
   SunApi,
   checkSJH,
@@ -45,5 +52,7 @@ export {
   checkSFZ,
   checkByKey,
   checkEmail,
-  dateForamtKeys
+  dateForamtKeys,
+  questionTypes,
+  selectOptions
 }

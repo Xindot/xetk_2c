@@ -4,6 +4,10 @@
       <div class="width-1">
         <div class="left">
           <img src="http://s1.nianran.net/assets/2020/paste/20200123170758.png" class="logo-icon" @click="goPage('index')">
+          <span class="s-user-icon float-right clear-float">
+            <i class="el-icon-user"></i>
+            <!-- <span>登录</span> -->
+          </span>
         </div>
         <div class="center">
           <span>一个有质量的IT面试题库，助力于程序员的自我修养</span>
@@ -209,10 +213,26 @@ export default {
         &.left {
           width: 20%;
           text-align: left;
+          .s-user-icon {
+            display: none;
+          }
+          @media (max-width: 768px) {
+            width: 100%;
+            .s-user-icon {
+              display: inline-block;
+              padding: 0 15px;
+              box-sizing: border-box;
+              font-size: 16px;
+              i {
+                font-size: 20px;
+                vertical-align: -2px;
+                margin-right: 5px;
+              }
+            }
+          }
         }
         &.center {
           width: 60%;
-          // text-align: left;
           @media (max-width: 768px) {
             display: none;
           }
@@ -244,6 +264,7 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
+    z-index: 1111;
     > div {
       position: absolute;
       top: 50%;

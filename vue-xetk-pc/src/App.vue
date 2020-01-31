@@ -128,7 +128,7 @@ pre {
   padding: 0;
   font-size: 0;
   code {
-    font-size: 14px;
+    font-size: 14px !important;
     padding: 15px 5px 15px 5px !important;
     box-sizing: border-box;
     font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
@@ -229,6 +229,56 @@ pre {
   }
   .el-icon-success {
     color: #109982;
+  }
+}
+
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+/* 伪类清除浮动 开始 */
+.clear-float::after {
+  content: ".";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+.clear-float {
+  zoom: 1;
+}
+/* 伪类清除浮动 结束 */
+
+.el-pagination.is-background .el-pager li:not(.disabled):hover {
+  color: #1d1d1d;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #1d1d1d;
+  color: #fff;
+}
+
+.el-collapse {
+  .el-collapse-item {
+    .el-collapse-item__header {
+      height: 40px;
+      line-height: 40px;
+      color: #109982;
+      > i {
+        font-size: 16px;
+        margin-right: 5px;
+      }
+    }
+    .el-collapse-item__wrap {
+      padding: 0 5px;
+      box-sizing: border-box;
+      background-color: #f5f5f5;
+      .el-collapse-item__content {
+        padding-bottom: 10px;
+      }
+    }
   }
 }
 </style>
