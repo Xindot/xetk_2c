@@ -6,7 +6,8 @@
       </div>
       <div class="content">
         <div class="left">
-          <p v-for="(item,index) in subCategoryList" :key="index" @click="selectFn2(item,index)" :class="{'selected':index==sIdx2}">{{item.name}}</p>
+          <p class="p-sub" v-for="(item,index) in subCategoryList" :key="index" @click="selectFn2(item,index)" :class="{'selected':index==sIdx2}">{{item.name}}</p>
+          <p v-if="subCategoryList.length==0" class="no-sub">暂无子分类</p>
         </div>
         <div class="right">
           <p class="p-1">
@@ -151,10 +152,13 @@ export default {
       });
     },
     selectFn1(item, idx) {
+      this.listFilter2.page = 1;
+
       this.sIdx1 = idx;
       this.subCategoryList = item.children || [];
-      this.listFilter2.page = 1;
-      this.getQuestionList();
+      if (this.subCategoryList.length > 0) {
+        this.getQuestionList();
+      }
     },
     selectFn2(item, idx) {
       this.sIdx2 = idx;
@@ -246,7 +250,7 @@ export default {
         @media (max-width: 600px) {
           display: none;
         }
-        > p {
+        > p.p-sub {
           cursor: pointer;
           height: 50px;
           line-height: 50px;
@@ -268,6 +272,13 @@ export default {
             font-weight: bold;
             border-left: 5px solid #109982;
           }
+        }
+        > p.no-sub {
+          height: 50px;
+          line-height: 50px;
+          box-sizing: border-box;
+          padding-left: 15px;
+          background-color: #fff;
         }
       }
       &.right {

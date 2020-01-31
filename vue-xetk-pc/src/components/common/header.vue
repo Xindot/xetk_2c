@@ -4,6 +4,7 @@
       <div class="width-1">
         <div class="left">
           <img src="http://s1.nianran.net/assets/2020/paste/20200123170758.png" class="logo-icon" @click="goPage('index')">
+          <span>内测版</span>
           <span class="s-user-icon float-right clear-float">
             <i class="el-icon-user"></i>
             <!-- <span>登录</span> -->
@@ -115,7 +116,7 @@ export default {
       const f1 = {
         account: f.account,
         SignName: "小鹅题库",
-        scene: 1
+        scene: 1 // 1注册 2找回密码
       };
       this.getVCode.doing = true;
       SunApi_user_vcode(f1).then(res => {

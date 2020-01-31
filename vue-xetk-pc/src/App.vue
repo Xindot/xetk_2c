@@ -169,6 +169,7 @@ pre {
     }
     &.hljs-ln-code {
       padding-left: 15px;
+      font-size: 14px !important;
     }
   }
 }
