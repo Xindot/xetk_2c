@@ -15,18 +15,18 @@
               <i class="el-icon-s-unfold"></i>
             </span>
             <span class="s-1 float-left clear-float">
-              <el-dropdown trigger="click" @command="handleCommand">
+              <el-dropdown trigger="click" @command="handleCommand" style="cursor:pointer;">
                 <span class="el-dropdown-link">
-                  <span>{{questionTypes[listFilter2.type] || '类型'}}</span>
+                  <span>{{questionTypes[listFilter2.type] || '所有类型'}}</span>
                   <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item v-for="(item,index) in questionTypes" :key="index" :command="index+''">{{item}}</el-dropdown-item>
+                  <el-dropdown-item v-for="(item,index) in questionTypes" :key="index" :command="index">{{item}}</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
-              <!-- <span>
+              <span v-if="listFilter2.type || listFilter2.type===0" style="padding:0 5px;cursor:pointer;" @click="clearSelecedType">
                 <i class="el-icon-close"></i>
-              </span> -->
+              </span>
             </span>
             <span class="s-1">
               <span>共</span>
@@ -63,24 +63,25 @@
                 </div>
                 <div class="q-answer">
                   <el-collapse>
-                    <el-collapse-item name="1">
+                    <el-collapse-item name="1" v-if="item.answer">
                       <template slot="title">
                         <i class="el-icon-medal"></i>
                         参考答案
                       </template>
                       <div>
-                        <span v-if="item.type==0||item.type==1">{{selectOptions[item.answer]}}</span>
+                        <span v-if="item.type==0">{{selectOptions[item.answer]}}</span>
+                        <span v-else-if="item.type==1">
+                          <span v-for="(item1,index1) in item.answer" :key="index1">{{selectOptions[item1]}}</span>
+                        </span>
                         <span v-else>{{item.answer}}</span>
                       </div>
                     </el-collapse-item>
-                    <el-collapse-item name="2">
+                    <el-collapse-item name="2" v-if="item.analysis">
                       <template slot="title">
                         <i class="el-icon-news"></i>
                         解析
                       </template>
-                      <div>
-                        <span>暂无</span>
-                      </div>
+                      <div style="white-space: pre-line;">{{item.analysis}}</div>
                     </el-collapse-item>
                   </el-collapse>
                 </div>
@@ -122,7 +123,7 @@ export default {
         size: 20,
         sort: "",
         user_id: "",
-        type: "0",
+        type: "",
         category_id: ""
       },
       questionList: [],
@@ -153,7 +154,7 @@ export default {
     },
     selectFn1(item, idx) {
       this.listFilter2.page = 1;
-
+      this.listFilter2.type = "";
       this.sIdx1 = idx;
       this.subCategoryList = item.children || [];
       if (this.subCategoryList.length > 0) {
@@ -161,12 +162,18 @@ export default {
       }
     },
     selectFn2(item, idx) {
-      this.sIdx2 = idx;
       this.listFilter2.page = 1;
+      this.listFilter2.type = "";
+      this.sIdx2 = idx;
       this.getQuestionList();
     },
     handleCommand(command) {
-      this.listFilter2.type = command + "";
+      this.listFilter2.type = command;
+      this.listFilter2.page = 1;
+      this.getQuestionList();
+    },
+    clearSelecedType() {
+      this.listFilter2.type = "";
       this.listFilter2.page = 1;
       this.getQuestionList();
     },
@@ -260,6 +267,7 @@ export default {
           border-left: 1px solid #e5e5e5;
           border-right: 1px solid #e5e5e5;
           overflow-x: auto;
+          overflow-y: hidden;
           word-break: break-all;
           &:hover {
             background-color: #fafafa;
@@ -385,3 +393,7 @@ export default {
   }
 }
 </style>
+
+<style lang="scss">
+</style>
+
